@@ -22,7 +22,7 @@ public:
             
             iterator_nums_map = nums_map.find(second_argument);            
 
-            if(iterator_nums_map != nums_map.end() && iterator_nums_map->second != i){
+            if(iterator_nums_map != nums_map.end()){
                 result[0] = i;
                 result[1] = iterator_nums_map->second ;
                 return result;  
