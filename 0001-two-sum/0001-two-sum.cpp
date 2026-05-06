@@ -3,7 +3,6 @@
 #include <iterator>
 
 using std::find;
-using std::distance;
 using std::unordered_map;
 
 class Solution {
