@@ -1,10 +1,11 @@
 #include <unordered_map> 
 #include <algorithm>
 #include <iterator>
+#include <vector>
 
 using std::find;
 using std::unordered_map;
-
+using std::vector;
 class Solution {
 
 public:
@@ -12,7 +13,7 @@ public:
         unordered_map<int, int> nums_map;
         vector<int> result(2,0);
         int second_argument = 0;
-        std::unordered_map<int, int>::iterator iterator_nums_map;
+        unordered_map<int, int>::iterator iterator_nums_map;
         size_t iterator_current_index;
         
         
