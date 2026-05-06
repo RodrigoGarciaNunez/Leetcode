@@ -1,40 +1,37 @@
 #include <unordered_map> 
 #include <algorithm>
-using std::string;
+#include <iterator>
+
 using std::find;
 using std::distance;
-
 using std::unordered_map;
-class Solution {
 
+class Solution {
 
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> hashmap;
+        unordered_map<int, int> nums_map;
         vector<int> result(2,0);
-        int index=0;
-        int number=0;
-        std::vector<int>::iterator nums_it;
-        //ashmap[0] = nums[0];
+        int second_argument = 0;
+        std::unordered_map<int, int>::iterator iterator_nums_map;
+        size_t iterator_current_index;
+        
         
         for(int i =0; i < nums.size(); i++){
             
-            nums_it = find(nums.begin(), nums.end(), target- nums[i]);
+            second_argument = target - nums[i];
             
-            if(nums_it != nums.end()){
-                index = distance(nums.begin(), nums_it);
-                number = *nums_it;
-                hashmap[number] = index;
-                result[0] = hashmap[number];
-                result[1] = i; 
+            iterator_nums_map = nums_map.find(second_argument);            
 
-                if (index != i){
-                    break;
-                }    
+            if(iterator_nums_map != nums_map.end() && iterator_nums_map->second != i){
+                result[0] = i;
+                result[1] = iterator_nums_map->second ;
+                break;  
+
             }
-                   
-        }
 
+            nums_map[nums[i]] = i;  
+        }
         return  result;
     }
 }; 
