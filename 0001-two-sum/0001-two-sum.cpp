@@ -26,7 +26,7 @@ public:
             if(iterator_nums_map != nums_map.end() && iterator_nums_map->second != i){
                 result[0] = i;
                 result[1] = iterator_nums_map->second ;
-                break;  
+                return result;  
 
             }
 
