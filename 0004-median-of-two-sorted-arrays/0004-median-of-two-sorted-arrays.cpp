@@ -8,7 +8,6 @@ public:
 
         
         if(nums1.size()== 0 || nums2.size()==0){
-            double result=0;
             if(total_size <= 1){
                 return static_cast<double>(nums1.size()>0) ? nums1[0]: nums2[0];
             }
