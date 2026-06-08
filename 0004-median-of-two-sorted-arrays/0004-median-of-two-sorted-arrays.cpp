@@ -10,19 +10,16 @@ public:
         if(nums1.size()== 0 || nums2.size()==0){
             double result=0;
             if(total_size <= 1){
-                result = static_cast<double>(nums1.size()>0) ? nums1[0]: nums2[0];
-                return result;
+                return static_cast<double>(nums1.size()>0) ? nums1[0]: nums2[0];
             }
 
             vector<int> * aux = (nums1.size()== 0 ) ? &nums2: &nums1; 
 
-            if(total_size%2 != 0){
-                result= static_cast<double>((*aux)[middle]);  
-                return result;
+            if(total_size%2 != 0){ 
+                return static_cast<double>((*aux)[middle]); 
             }
             else{
-                result = static_cast<double>((*aux)[middle] + (*aux)[middle+1])/2; 
-                return result;
+                return static_cast<double>((*aux)[middle] + (*aux)[middle+1])/2; ;
             }
 
         }
