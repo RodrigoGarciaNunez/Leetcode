@@ -38,11 +38,11 @@ public:
             it1_value = (it1 == nums1.end()) ? *it2+1: *it1;
             it2_value = (it2== nums2.end()) ? *it1+1: *it2;
 
-            if (it1 != nums1.end() && it1_value < it2_value){
+            if (it1_value < it2_value){
                 overall_index.second=*it1;
                 it1 = (it1 == nums1.end()) ? it1: ++it1;
             }
-            else if(it2 != nums2.end()){
+            else{
                 overall_index.second=*it2;
                 it2 = (it2 == nums2.end()) ? it2: ++it2;
             }
