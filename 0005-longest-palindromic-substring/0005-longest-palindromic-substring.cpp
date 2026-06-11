@@ -59,9 +59,9 @@ string longestPalindrome(string s)
         {
 
             // si el substring ya es más pequeño que el actual más grande, se retorna
-            if (right-left+1 <= longest_pstring.size()) return longest_pstring;
-
+            
             checks_possible_palindrome(left, right, &longest_pstring);
+            if (right-left+1 <= longest_pstring.size()) return longest_pstring;
 
             ++left;
             ++right;
