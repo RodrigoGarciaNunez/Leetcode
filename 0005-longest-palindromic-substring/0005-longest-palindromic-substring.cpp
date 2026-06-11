@@ -35,7 +35,6 @@ string longestPalindrome(string s)
         return sub;
     }
 
-    string longest_pstring = string(1, s[0]);
 
     char *cota_left;
     char *left;
@@ -83,7 +82,7 @@ string longestPalindrome(string s)
         right = cota_right - (++window_size_reducer);
     }
 
-    return longest_pstring;
+    return string(1, s[0]);
 }
 
 };
