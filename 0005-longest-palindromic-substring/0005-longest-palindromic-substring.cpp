@@ -1,7 +1,7 @@
 using char_addres = char *;
 class Solution {
 public:
-void checks_possible_palindrome(char * left_, char * right_ ,string *string_, string *longest_pstring)
+void checks_possible_palindrome(char * left_, char * right_, string *longest_pstring)
 {
 
     char *left;
@@ -57,13 +57,11 @@ string longestPalindrome(string s)
         
         while (right <= cota_right)
         {
-            //substring = string(left, right + 1);
-            //cerr << "substring a checar " << substring << " contra el más grande " << longest_pstring <<"\n";
 
             // si el substring ya es más pequeño que el actual más grande, se retorna
             if (right-left+1 <= longest_pstring.size()) return longest_pstring;
 
-            checks_possible_palindrome(left, right, &s, &longest_pstring);
+            checks_possible_palindrome(left, right, &longest_pstring);
 
             ++left;
             ++right;
