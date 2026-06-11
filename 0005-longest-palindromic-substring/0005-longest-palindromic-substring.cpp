@@ -1,7 +1,7 @@
 using char_addres = char *;
 class Solution {
 public:
-void checks_possible_palindrome(char * left_, char * right_, string *longest_pstring)
+void checks_possible_palindrome(char * left_, char * right_ , char **left_solution, char** right_solution)
 {
 
     char *left;
@@ -12,7 +12,6 @@ void checks_possible_palindrome(char * left_, char * right_, string *longest_pst
 
     while (left < right)
     {
-        //cerr << *left << *right << "\n";
         if (*left == *right)
         {
             ++left;
@@ -21,7 +20,10 @@ void checks_possible_palindrome(char * left_, char * right_, string *longest_pst
         else return;
     }
 
-    *longest_pstring = string(left_, right_+1);
+    *left_solution = left_;
+    *right_solution = right_;
+
+    //*longest_pstring = string(left_, right_+1);
 }
 
 string longestPalindrome(string s)
@@ -40,29 +42,39 @@ string longestPalindrome(string s)
     char *cota_right;
     char *right;
 
+   
+
     size_t window_size_reducer = 0;
 
     cota_left = &(*(s.begin()));
     cota_right = &(*(s.end()-1));
-
+    
+    char *left_current_solution= cota_left;
+    char *right_current_solution = cota_left;
+    
     left = cota_left;
     right = cota_right;
-    size_t total_posible_size=0;
 
-    while (right - left > 0)
+    size_t total_posible_size=right-left+1;
+    size_t current_solution_size=right_current_solution - left_current_solution+1;
+
+    while (right - left >= 0)
     {
-        total_posible_size = right-left +1;
-        if (total_posible_size <= longest_pstring.size()) return longest_pstring;
-        //cerr << total_posible_size << "\n";
+        total_posible_size = right-left+1;
+        
+        
+        if (total_posible_size <= current_solution_size) return string(left_current_solution, right_current_solution+1);
+        
         
         while (right <= cota_right)
         {
+            //cerr << "substring a checar " << substring << " contra el más grande " << longest_pstring <<"\n";
 
             // si el substring ya es más pequeño que el actual más grande, se retorna
-            
-            checks_possible_palindrome(left, right, &longest_pstring);
-            if (right-left+1 <= longest_pstring.size()) return longest_pstring;
+            if (right-left+1 <= current_solution_size) return string(left_current_solution, right_current_solution+1);
 
+            checks_possible_palindrome(left, right, &left_current_solution, &right_current_solution);
+            current_solution_size = right_current_solution - left_current_solution+1;
             ++left;
             ++right;
         }
@@ -73,6 +85,7 @@ string longestPalindrome(string s)
 
     return longest_pstring;
 }
+
 };
 
 // Synced seamlessly with LeetHub Pro
