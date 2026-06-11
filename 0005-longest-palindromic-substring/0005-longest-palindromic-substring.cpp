@@ -34,7 +34,6 @@ string longestPalindrome(string s)
     }
 
     string longest_pstring = string(1, s[0]);
-    string substring;
 
     char *cota_left;
     char *left;
